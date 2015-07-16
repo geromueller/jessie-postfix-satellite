@@ -1,0 +1,4 @@
+---
+
+jessie_postfix_satellite_relay: example.org
+jessie_postfix_satellite_email: mail@example.org

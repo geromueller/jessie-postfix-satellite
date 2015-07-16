@@ -1,0 +1,21 @@
+# setup smtpd
+smtpd_banner = $myhostname ESMTP $mail_name (Debian/GNU)
+smtpd_use_tls=no
+inet_interfaces = loopback-only
+
+# no new mail message
+biff = no
+readme_directory = no
+
+# all mail shall be relayed
+mydestination =
+relayhost = {{ jessie_postfix_satellite_relay }}
+
+myhostname = {{ansible_fqdn}}
+alias_maps = hash:/etc/aliases
+alias_database = hash:/etc/aliases
+
+# accept mail only from localhost
+mynetworks = 127.0.0.0/8 [::ffff:127.0.0.0]/104 [::1]/128
+mailbox_command =
+recipient_delimiter = +

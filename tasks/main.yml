@@ -1,0 +1,12 @@
+---
+- name: install postfix
+  action: apt pkg=postfix state=installed
+
+- name: set postfix config
+  template: src=main.cf.j2 dest=/etc/postfix/main.cf
+  notify:
+    - restart postfix
+
+- lineinfile: "dest=/etc/aliases regexp='^root:' line='root: {{jessie_postfix_satellite_root}}'"
+  notify:
+    - newaliases
