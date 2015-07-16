@@ -8,7 +8,7 @@ biff = no
 readme_directory = no
 
 # all mail shall be relayed
-mydestination =
+mydestination = $myhostname
 relayhost = {{ jessie_postfix_satellite_relay }}
 
 myhostname = {{ansible_fqdn}}
