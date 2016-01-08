@@ -7,6 +7,6 @@
   notify:
     - restart postfix
 
-- lineinfile: "dest=/etc/aliases regexp='^root:' line='root: {{jessie_postfix_satellite_root}}'"
+- lineinfile: "dest=/etc/aliases regexp='^root:' line='root: {{jessie_postfix_satellite_email}}'"
   notify:
     - newaliases
